@@ -1,7 +1,7 @@
-const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
+const WriteFilesPlugin = require("write-file-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -28,6 +28,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new WriteFilesPlugin(),
     new HtmlWebpackHarddiskPlugin(),
     new HtmlWebpackPlugin({
       title: "Restaurant Page",
