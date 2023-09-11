@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npm run watch && npm run start",
     "start": "webpack serve --open-app-name Google Chrome",
+    "watch": "webpack -watch",
     "build": "webpack"
   },
   "keywords": [],
