@@ -1,5 +1,3 @@
-import { pageLoad } from "./page-load";
-
-pageLoad();
+import pageLoad from './page-load';
 
 pageLoad();
