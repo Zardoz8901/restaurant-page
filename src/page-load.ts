@@ -12,6 +12,12 @@ export default function pageLoad() {
         const p = document.createElement('p');
         return p;
     };
+    // string sanitizer
+    function capitalizeWith(input: string) {
+        return input.replace(/^\bwith\b|\b\w+\b/g, (match) =>
+            match.toLowerCase() === 'with' ? 'With' : match.toLowerCase()
+        );
+    }
     // instantiate header nav
     const idContentDivArray = [
         'content-wrapper',
@@ -66,7 +72,7 @@ export default function pageLoad() {
         }
         const menuItems = [
             'Chili Cup',
-            'Hamburber',
+            'Hamburger',
             'Cheese Burger',
             'Bacon, Lettuce, Tomato',
             "Chef's Salad",
@@ -74,18 +80,18 @@ export default function pageLoad() {
             'Steak Tartare',
             'Roast Cornish Hen',
         ];
-        const menuItemsArray = Array.from(document.getElementsByClassName('menu-item-title'));
+        const menuItemsArray = Array.from(document.querySelectorAll('.menu-item-title'));
         console.log(menuItemsArray);
         menuItemsArray.forEach((e, i) => {
             const div = createDiv();
             div.setAttribute('class', 'menu-item-text');
-            div.textContent = menuItems[i];
+            div.textContent = capitalizeWith(menuItems[i]);
             e.appendChild(div);
         });
         const menuDescriptions = [
             'Spicy Bulgogi Beef, Gochujang-Infused Beans',
-            'With Sesame Mayo, Fresh Kimchi',
-            'With American Cheese, Gochujang Mayo',
+            'With Waygu Chop, Fresh Kimchi, Sesame Mayo, ',
+            'With Bulgogi Beef, American Cheese, Gochujang Mayo',
             'Guanciale, Pickled Daikon',
             'Crispy Quinoa, Purple Shiso Leaves, Gochujang Dressing',
             'Watermelon Radish, Yuzu-Infused Avocado, Furikake',
@@ -93,14 +99,26 @@ export default function pageLoad() {
             'With Kimchi Pancakes, Pickled Perilla Leaves',
         ];
         const menuDescriptionsArray = Array.from(
-            document.getElementsByClassName('menu-item-description')
+            document.querySelectorAll('.menu-item-description')
         );
 
         menuDescriptionsArray.forEach((e, i) => {
             const div = createDiv();
             div.setAttribute('class', 'menu-description-text');
-            div.textContent = menuDescriptions[i];
+            div.textContent = capitalizeWith(menuDescriptions[i]);
             e.appendChild(div);
+        });
+        const menuItemPrices = ['7', '16', '19', '18', '17', '15', '28', '35'];
+        const menuItemPricArray = Array.from(document.querySelectorAll('.menu-item-price'));
+        menuItemPricArray.forEach((e, i) => {
+            const span = createSpan();
+            span.setAttribute('class', 'item-price');
+            span.textContent = menuItemPrices[i];
+            e.appendChild(span);
+        });
+        const currencySignArray = Array.from(document.querySelectorAll('.currency-sign'));
+        currencySignArray.forEach((e) => {
+            e.textContent = '$';
         });
     })();
     // instantiate allergy disclaimer
