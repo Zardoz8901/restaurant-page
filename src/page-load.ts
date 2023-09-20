@@ -12,6 +12,10 @@ export default function pageLoad() {
         const p = document.createElement('p');
         return p;
     };
+    const createAnchor = () => {
+        const a = document.createElement('a');
+        return a;
+    };
     // string sanitizer
     function capitalizeWith(input: string) {
         return input.replace(/^\bwith\b|\b\w+\b/g, (match) =>
@@ -28,7 +32,15 @@ export default function pageLoad() {
         'pre-footer-image',
         'footer-nav',
     ];
-    const idHeaderSpanArray = ['menu', 'contact', 'location', 'image', 'restaurant', 'social'];
+    const idHeaderSpanArray = [
+        'menu',
+        'contact',
+        'location',
+        'header-logo',
+        'header-restaurant-namer',
+        'hreader-social-icon',
+    ];
+    const imageArray = ['img1', 'img2', 'img3', 'img4'];
     idContentDivArray.forEach((e) => {
         const div = createDiv();
         body.appendChild(div);
@@ -48,8 +60,22 @@ export default function pageLoad() {
     nodeDivArray[1].setAttribute('role', 'navigation');
     nodeDivArray[1].setAttribute('aria-label', 'Main');
     const nodeSpanArray = Array.from(document.querySelectorAll('span'));
-    nodeSpanArray.forEach((e) => {
+    nodeSpanArray.forEach((e, i) => {
         nodeDivArray[1].appendChild(e);
+        if (i < 3) {
+            const a = createAnchor();
+            e.appendChild(a);
+            a.textContent = idHeaderSpanArray[i];
+        } else if (i >= 3 && i < 6) {
+            const div = createDiv();
+            e.appendChild(div);
+            div.textContent = imageArray[i - 3];
+        }
+        if (i === 1) {
+            const div = createDiv();
+            nodeDivArray[5].appendChild(div);
+            [, , , div.textContent] = imageArray;
+        }
     });
     // instantiate menu section
     (() => {
@@ -127,4 +153,5 @@ export default function pageLoad() {
     nodeDivArray[4].appendChild(allergyP);
     allergyP.textContent =
         'Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.';
+    // instantiate pre-footer image
 }
