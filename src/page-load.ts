@@ -31,8 +31,9 @@ export default function pageLoad() {
         'allergy-disclaimer',
         'pre-footer-image',
         'footer-nav',
+        'copyright',
     ];
-    const idHeaderSpanArray = [
+    const idSpanArray = [
         'menu',
         'contact',
         'location',
@@ -46,7 +47,7 @@ export default function pageLoad() {
         body.appendChild(div);
         div.setAttribute('id', e);
     });
-    idHeaderSpanArray.forEach((e) => {
+    idSpanArray.forEach((e) => {
         const span = createSpan();
         body.appendChild(span);
         span.setAttribute('id', e);
@@ -59,13 +60,17 @@ export default function pageLoad() {
     });
     nodeDivArray[1].setAttribute('role', 'navigation');
     nodeDivArray[1].setAttribute('aria-label', 'Main');
+    // instantiate span menu and images on header and footer
     const nodeSpanArray = Array.from(document.querySelectorAll('span'));
     nodeSpanArray.forEach((e, i) => {
         nodeDivArray[1].appendChild(e);
         if (i < 3) {
+            const span = createSpan();
             const a = createAnchor();
             e.appendChild(a);
-            a.textContent = idHeaderSpanArray[i];
+            a.textContent = idSpanArray[i];
+            nodeDivArray[6].appendChild(span);
+            span.textContent = idSpanArray[i];
         } else if (i >= 3 && i < 6) {
             const div = createDiv();
             e.appendChild(div);
@@ -154,4 +159,5 @@ export default function pageLoad() {
     allergyP.textContent =
         'Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.';
     // instantiate pre-footer image
+    nodeDivArray[7].textContent = '©Zardoz8901';
 }
