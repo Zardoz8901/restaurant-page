@@ -1,3 +1,179 @@
-div {
-    color: red;
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+#root,
+#__next {
+    isolation: isolate;
+}
+
+html {
+    display: flex;
+}
+
+#content-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header-nav {
+    display: inline-flex;
+    width: 60%;
+    padding: 2vw 3vw;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+#header-nav span {
+    text-align: center;
+}
+
+#header-nav span:nth-child(1) {
+    text-align: right;
+}
+
+#header-nav span:nth-child(-n + 3) {
+    flex-basis: 11%;
+}
+
+#header-nav span:nth-child(3) {
+    text-align: left;
+}
+
+#header-nav span:nth-child(4),
+#header-nav span:nth-child(5) {
+    flex-basis: 23%;
+}
+
+#header-nav span:nth-child(4) {
+    text-align: right;
+    padding-right: 0.5vw;
+}
+#header-nav span:nth-child(5) {
+    text-align: left;
+    padding-left: 0.5vw;
+}
+
+#header-nav span:nth-child(6) {
+    text-align: center;
+    flex-basis: 34%;
+}
+
+#menu-section {
+    width: 74%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 8rem;
+    row-gap: 0.6rem;
+    padding: 6rem 10rem;
+    font-size: 1.8rem;
+}
+
+#menu-section > :nth-child(-n + 8) {
+    padding: 0 2rem;
+}
+
+.currency-sign {
+    padding-right: 0.2rem;
+}
+
+.menu-item-price {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.menu-item {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    order: 1;
+}
+
+.menu-item-title {
+    font-weight: bold;
+    order: 2;
+}
+
+.menu-item-description {
+    width: 100%;
+    padding: 0.6rem 0;
+    order: 3;
+}
+
+.menu-item-price {
+    position: relative;
+    left: 100%;
+    top: 2.6rem;
+    right: 1rem;
+    justify-content: flex-start;
+    font-weight: bold;
+    order: 1;
+}
+
+#allergy-disclaimer {
+    width: 33%;
+    padding: 0 6rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+#pre-footer-image {
+    text-align: center;
+    padding: 12rem 0;
+}
+
+#footer-nav,
+#copyright {
+    display: flex;
+    justify-content: center;
+}
+
+#copyright {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    padding-top: 6rem;
 }

@@ -112,7 +112,6 @@ export default function pageLoad() {
             'Roast Cornish Hen',
         ];
         const menuItemsArray = Array.from(document.querySelectorAll('.menu-item-title'));
-        console.log(menuItemsArray);
         menuItemsArray.forEach((e, i) => {
             const div = createDiv();
             div.setAttribute('class', 'menu-item-text');
@@ -120,8 +119,8 @@ export default function pageLoad() {
             e.appendChild(div);
         });
         const menuDescriptions = [
-            'Spicy Bulgogi Beef, Gochujang-Infused Beans',
-            'With Waygu Chop, Fresh Kimchi, Sesame Mayo, ',
+            'Spicy Mapo Chicken, Gochujang-Infused Beans',
+            'With Waygu Chop, Fresh Kimchi, Sesame Mayo ',
             'With Bulgogi Beef, American Cheese, Gochujang Mayo',
             'Guanciale, Pickled Daikon',
             'Crispy Quinoa, Purple Shiso Leaves, Gochujang Dressing',
