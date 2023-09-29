@@ -1,5 +1,4 @@
-export default function pageLoad() {
-    const body = document.querySelector('body');
+export default function menuRender() {
     const createDiv = () => {
         const div = document.createElement('div');
         return div;
@@ -8,88 +7,14 @@ export default function pageLoad() {
         const span = document.createElement('span');
         return span;
     };
-    const createP = () => {
-        const p = document.createElement('p');
-        return p;
-    };
-    const createAnchor = () => {
-        const a = document.createElement('a');
-        return a;
-    };
+    const menu = createDiv();
     // string sanitizer
     function capitalizeWith(input: string) {
         return input.replace(/^\bwith\b|\b\w+\b/g, (match) =>
             match.toLowerCase() === 'with' ? 'With' : match.toLowerCase()
         );
     }
-    // instantiate header nav
-    const idContentDivArray = [
-        'content-wrapper',
-        'header-nav',
-        'reservation-button',
-        'info-section',
-        'menu-section',
-        'allergy-disclaimer',
-        'pre-footer-image',
-        'footer-nav',
-        'copyright',
-    ];
-    const idSpanArray = [
-        'menu',
-        'contact',
-        'location',
-        'header-logo',
-        'header-restaurant-name',
-        'header-social-icon',
-        'spacer',
-        'spacer2',
-    ];
-
-    const imageArray = ['img1', "dalg's diner", 'img3', 'img4'];
-    idContentDivArray.forEach((e) => {
-        const div = createDiv();
-        body.appendChild(div);
-        div.setAttribute('id', e);
-    });
-    idSpanArray.forEach((e) => {
-        const span = createSpan();
-        body.appendChild(span);
-        span.setAttribute('id', e);
-    });
-    // instantiate divs and spans
-    const contentWrapper = document.getElementById('content-wrapper');
-    const nodeDivArray = Array.from(document.querySelectorAll('div'));
-    nodeDivArray.slice(1).forEach((e) => {
-        contentWrapper.appendChild(e);
-    });
-    nodeDivArray[1].setAttribute('role', 'navigation');
-    nodeDivArray[1].setAttribute('aria-label', 'Main');
-    // instantiate span menu and images on header and footer
-    const nodeSpanArray = Array.from(document.querySelectorAll('span'));
-    nodeSpanArray.forEach((e, i) => {
-        nodeDivArray[1].appendChild(e);
-        if (i < 3) {
-            const span = createSpan();
-            const a = createAnchor();
-            e.appendChild(a);
-            a.textContent = idSpanArray[i];
-            nodeDivArray[7].appendChild(span);
-            span.textContent = idSpanArray[i];
-        } else if (i >= 3 && i < 6) {
-            const div = createDiv();
-            e.appendChild(div);
-            div.textContent = imageArray[i - 3];
-        }
-        // insantiate images
-        if (i === 1) {
-            const div = createDiv();
-            nodeDivArray[5].appendChild(div);
-            [, , , , div.textContent] = imageArray;
-        }
-    });
-    // instantiate menu section
     (() => {
-        nodeDivArray[3].appendChild(nodeDivArray[4]);
         for (let i = 0; i < 8; i += 1) {
             const menuItem = createDiv();
             const menuItemTitle = createDiv();
@@ -101,7 +26,7 @@ export default function pageLoad() {
             menuItemDescritpion.setAttribute('class', 'menu-item-description');
             menuItemPrice.setAttribute('class', 'menu-item-price');
             currencySign.setAttribute('class', 'currency-sign');
-            nodeDivArray[4].appendChild(menuItem);
+            menu.appendChild(menuItem);
             menuItemPrice.appendChild(currencySign);
             menuItem.appendChild(menuItemPrice);
             menuItem.appendChild(menuItemTitle);
@@ -157,13 +82,4 @@ export default function pageLoad() {
             e.textContent = '$';
         });
     })();
-    // instantiate allergy disclaimer
-    const allergyP = createP();
-    allergyP.setAttribute('id', 'allergy-paragraph');
-    nodeDivArray[5].appendChild(allergyP);
-    allergyP.textContent =
-        'Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.';
-    // instantiate pre-footer image
-    nodeDivArray[8].textContent = '©Zardoz8901';
-    return nodeDivArray;
 }

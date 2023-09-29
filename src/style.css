@@ -115,6 +115,12 @@ body {
     flex-basis: 22%;
 }
 
+#info-section {
+    display: flex;
+    justify-content: center;
+    right: 1rem;
+}
+
 #menu-section {
     position: relative;
     right: 0.6rem;
