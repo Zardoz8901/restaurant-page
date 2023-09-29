@@ -38,10 +38,13 @@ export default function pageLoad() {
         'contact',
         'location',
         'header-logo',
-        'header-restaurant-namer',
-        'hreader-social-icon',
+        'header-restaurant-name',
+        'header-social-icon',
+        'spacer',
+        'spacer2',
     ];
-    const imageArray = ['img1', 'img2', 'img3', 'img4'];
+
+    const imageArray = ['img1', "dalg's diner", 'img3', 'img4'];
     idContentDivArray.forEach((e) => {
         const div = createDiv();
         body.appendChild(div);

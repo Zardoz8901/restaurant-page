@@ -42,13 +42,14 @@ h6 {
     isolation: isolate;
 }
 
-html {
+body {
     display: flex;
+    justify-content: center;
 }
 
 #content-wrapper {
     width: 100%;
-
+    max-width: 1600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,8 +57,8 @@ html {
 
 #header-nav {
     display: inline-flex;
-    width: 60%;
-    padding: 2vw 3vw;
+    width: 70%;
+    padding: 4rem 3rem;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
@@ -65,53 +66,66 @@ html {
 }
 
 #header-nav span {
-    text-align: center;
+    text-align: left;
+    cursor: pointer;
 }
 
 #header-nav span:nth-child(1) {
-    text-align: right;
+    order: 1;
 }
 
 #header-nav span:nth-child(-n + 3) {
-    flex-basis: 11%;
+    flex-basis: 8%;
+}
+
+#header-nav span:nth-child(-n + 3):hover {
+    text-decoration: underline 2px black;
 }
 
 #header-nav span:nth-child(3) {
-    text-align: left;
+    order: 3;
 }
 
-#header-nav span:nth-child(4),
-#header-nav span:nth-child(5) {
-    flex-basis: 23%;
+#header-nav span:nth-child(8) {
+    order: 4;
+    flex-basis: 11%;
 }
 
 #header-nav span:nth-child(4) {
+    order: 5;
     text-align: right;
     padding-right: 0.5vw;
+    flex-basis: 10%;
 }
 #header-nav span:nth-child(5) {
+    order: 6;
     text-align: left;
     padding-left: 0.5vw;
+    flex-basis: 18%;
+}
+
+#header-nav span:nth-child(7) {
+    order: 7;
+    flex-basis: 11%;
 }
 
 #header-nav span:nth-child(6) {
-    text-align: center;
-    flex-basis: 34%;
+    order: 8;
+    text-align: right;
+    flex-basis: 22%;
 }
 
 #menu-section {
-    width: 74%;
+    position: relative;
+    right: 0.6rem;
+    width: 60%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     column-gap: 8rem;
     row-gap: 0.6rem;
-    padding: 6rem 10rem;
-    font-size: 1.8rem;
-}
-
-#menu-section > :nth-child(-n + 8) {
-    padding: 0 2rem;
+    padding: 2rem 6rem;
+    font-size: 1.7rem;
 }
 
 .currency-sign {
@@ -146,15 +160,16 @@ html {
 .menu-item-price {
     position: relative;
     left: 100%;
-    top: 2.6rem;
-    right: 1rem;
+    top: 2.7rem;
+    left: 20rem;
     justify-content: flex-start;
     font-weight: bold;
     order: 1;
 }
 
 #allergy-disclaimer {
-    width: 33%;
+    margin-top: 2rem;
+    width: 34%;
     padding: 0 6rem;
     text-align: center;
     font-size: 0.8rem;
@@ -176,4 +191,60 @@ html {
     align-items: center;
     justify-content: end;
     padding-top: 6rem;
+}
+
+#header-logo {
+    background-image: url('./images/chicken.svg');
+    background-size: 2.7rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: transparent;
+    height: 2.7rem;
+}
+
+#header-restaurant-name {
+    font-size: 2.1rem;
+    font-weight: bold;
+}
+
+#header-social-icon {
+    background-image: url('./images/threads-social.svg');
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 1.1rem;
+}
+
+#pre-footer-image {
+    background-image: url('./images/crab.svg');
+    color: transparent;
+    width: 10rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10rem;
+    cursor: pointer;
+}
+
+#footer-nav {
+    display: flex;
+    width: 18%;
+    font-size: 1.7rem;
+}
+
+#footer-nav span {
+    flex-basis: 33%;
+    text-align: center;
+    cursor: pointer;
+}
+
+#footer-nav span:nth-child(1) {
+    text-align: right;
+}
+
+#footer-nav span:nth-child(3) {
+    text-align: left;
+}
+
+#footer-nav span:hover {
+    text-decoration: underline 2px black;
 }
