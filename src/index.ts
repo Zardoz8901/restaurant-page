@@ -2,10 +2,12 @@ import pageLoad from './page-load';
 import { menuRender, menuPopulate } from './menu';
 import './style.css';
 import { locationRender, locationPopulate } from './location';
+import { contactRender, contactPopulate } from './contact';
 
 pageLoad();
 const menuNode = menuRender();
 const locationNode = locationRender();
+const contactNode = contactRender();
 const anchorsArray = Array.from(document.querySelectorAll('a'));
 const infoSection = document.getElementById('info-section');
 const menuNav = anchorsArray.filter((e) => e.innerText === 'menu');
@@ -31,8 +33,20 @@ function switchSection(newSectionNode: HTMLElement) {
 locationNav.forEach((element, i) =>
     element.addEventListener('click', () => {
         switchSection(locationNode);
+        // jamming a stick in the works
         if (i < 1) {
             locationPopulate();
+            i = 1;
+        }
+    })
+);
+
+contactNav.forEach((element, i) =>
+    element.addEventListener('click', () => {
+        switchSection(contactNode);
+        // jamming a stick in the works
+        if (i < 1) {
+            contactPopulate();
             i = 1;
         }
     })
