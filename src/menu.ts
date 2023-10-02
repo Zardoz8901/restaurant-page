@@ -26,7 +26,6 @@ export function menuRender() {
         menuItem.appendChild(menuItemTitle);
         menuItem.appendChild(menuItemDescritpion);
     }
-
     return menu;
 }
 
@@ -56,7 +55,6 @@ export function menuPopulate() {
         'Roast Cornish Hen',
     ];
     const menuItemsArray = Array.from(document.querySelectorAll('.menu-item-title'));
-    console.log(menuItemsArray);
     menuItemsArray.forEach((e, i) => {
         const div = createDiv();
         div.setAttribute('class', 'menu-item-text');
