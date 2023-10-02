@@ -17,7 +17,7 @@ const locationNav = anchorsArray.filter((e) => e.innerText === 'location');
     menuPopulate();
 })();
 
-function switchSection(newSectionNode: HTMLElement, populateFunction: any) {
+function switchSection(newSectionNode: HTMLElement) {
     // Remove the current section (if any)
     while (infoSection.firstChild) {
         infoSection.removeChild(infoSection.firstChild);
@@ -25,18 +25,21 @@ function switchSection(newSectionNode: HTMLElement, populateFunction: any) {
 
     // Append the new section and populate it
     infoSection.appendChild(newSectionNode);
-    populateFunction();
 }
 
-// Add event listeners for the "menu" and "location" links
-locationNav.forEach((element) =>
+// Add event listeners for the "menu", "contact", and "location" links
+locationNav.forEach((element, i) =>
     element.addEventListener('click', () => {
-        switchSection(locationNode, locationPopulate);
+        switchSection(locationNode);
+        if (i < 1) {
+            locationPopulate();
+            i = 1;
+        }
     })
 );
 
 menuNav.forEach((element) =>
     element.addEventListener('click', () => {
-        switchSection(menuNode, menuPopulate);
+        switchSection(menuNode);
     })
 );

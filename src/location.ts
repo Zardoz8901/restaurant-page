@@ -17,7 +17,6 @@ export function locationRender() {
         div.setAttribute('id', e);
         location.appendChild(div);
     });
-
     return location;
 }
 
